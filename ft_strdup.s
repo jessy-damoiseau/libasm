@@ -1,4 +1,5 @@
 global ft_strdup
+section .text
 extern malloc
 extern ft_strlen
 extern ft_strcpy
@@ -19,9 +20,9 @@ ft_strdup:
 
     err_exit:
         neg rax;
-        mov rbx, rax;
+        push rax;
         call __errno_location;
-        mov [rax], rbx;
+        pop qword[rax];
         mov rax, -1;
         ret
         

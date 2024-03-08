@@ -1,4 +1,5 @@
 global ft_read
+section .text
 extern __errno_location
 
 ft_read:
@@ -10,8 +11,8 @@ ft_read:
 
     err_exit:
         neg rax;
-        mov rbx, rax;
+        push rax;
         call __errno_location;
-        mov [rax], rbx;
+        pop qword[rax];
         mov rax, -1;
         ret

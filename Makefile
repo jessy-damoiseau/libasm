@@ -5,8 +5,8 @@ SRCS = ft_strlen.s ft_strcpy.s ft_strcmp.s ft_write.s ft_read.s ft_strdup.s
 SRCS_BONUS= $(SRCS) 
 OBJS = $(SRCS:.s=.o)
 OBJS_BONUS = $(SRCS_BONUS:.s=.o)
-CC = gcc
-CFLAGS = -Wall -Wextra -Werror
+CC = clang
+CFLAGS = -Wall -Wextra -Werror -g
 
 .PHONY: all clean fclean re
 
@@ -21,7 +21,7 @@ bonus: $(OBJS_BONUS)
 	nasm -f elf64  $< -o $@
 
 ccproject: $(NAME_LIB)
-	$(CC) -no-pie main.c -L. -lasm -o test
+	$(CC) -no-pie  main.c -L. -lasm -o test
 
 ccproject_bonus: bonus
 	$(CC) -no-pie main.c -L. -lasm_bonus -o test_bonus

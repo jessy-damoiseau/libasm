@@ -1,4 +1,6 @@
 global ft_write
+section .text
+
 extern __errno_location
 
 ft_write:
@@ -10,8 +12,8 @@ ft_write:
 
     err_exit:
         neg rax;
-        mov rbx, rax;
+        push rax;
         call __errno_location;
-        mov [rax], rbx;
+        pop qword[rax];
         mov rax, -1;
         ret
