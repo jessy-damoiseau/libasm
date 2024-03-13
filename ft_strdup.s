@@ -10,7 +10,7 @@ ft_strdup:
     push rdi;
     inc rax;
     mov rdi, rax;
-    call malloc;
+    call malloc wrt ..plt;
     cmp rax, 0;
     jz err_exit;
     mov rdi, rax;
@@ -21,7 +21,7 @@ ft_strdup:
     err_exit:
         neg rax;
         push rax;
-        call __errno_location;
+        call __errno_location wrt ..plt;
         pop qword[rax];
         mov rax, -1;
         ret

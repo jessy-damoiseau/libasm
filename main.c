@@ -5,9 +5,10 @@ void		ft_main_strlen(void)
 {
 	printf("-------------------ft_strlen-------------------\n");
 	printf("ft_strlen : \n");
-	printf("%zd\n", ft_strlen("test12345"));
+	char *str = "test12345";
+	printf("%zd\n", ft_strlen(str));
 	printf("strlen : \n");
-	printf("%zd\n", strlen("test12345"));
+	printf("%zd\n", strlen(str));
 	printf("----------\n");
 	printf("ft_strlen : \n");
 	printf("%zd\n", ft_strlen("1"));
@@ -310,10 +311,10 @@ void		ft_main_read(void)
 
 int     main()
 {
-	ft_main_strlen();
-	ft_main_strcpy();
-	ft_main_strcmp();
+	// ft_main_strlen();
+	// ft_main_strcpy();
+	// ft_main_strcmp();
     ft_main_write();
-	ft_main_read();
-	ft_main_strdup();
+	// ft_main_read();
+	// ft_main_strdup();
 }

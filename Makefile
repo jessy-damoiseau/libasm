@@ -20,11 +20,8 @@ bonus: $(OBJS_BONUS)
 %.o: %.s
 	nasm -f elf64  $< -o $@
 
-ccproject: $(NAME_LIB)
-	$(CC) -no-pie  main.c -L. -lasm -o test
-
-ccproject_bonus: bonus
-	$(CC) -no-pie main.c -L. -lasm_bonus -o test_bonus
+test: $(NAME_LIB)
+	$(CC) main.c -L. -lasm -o test
 
 clean:
 	rm -f $(OBJS) $(OBJS_BONUS) 

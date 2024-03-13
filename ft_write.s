@@ -13,7 +13,7 @@ ft_write:
     err_exit:
         neg rax;
         push rax;
-        call __errno_location;
+        call __errno_location wrt ..plt;
         pop qword[rax];
         mov rax, -1;
         ret
